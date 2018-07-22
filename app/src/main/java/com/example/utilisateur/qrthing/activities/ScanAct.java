@@ -23,6 +23,9 @@ public class ScanAct extends AppCompatActivity implements SelectTimeDia.SelectTi
     int minute;
     int second;
 
+    int extraEvent;
+    long extraStartTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +37,8 @@ public class ScanAct extends AppCompatActivity implements SelectTimeDia.SelectTi
         bTimeSelect = (Button) findViewById(R.id.bSelectTime);
         Calendar cal = Calendar.getInstance();
         bTimeSelect.setText(cal.get(Calendar.HOUR_OF_DAY)+ ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND));
-    }
 
-    public void sendLog(View view) {
+        // Retrieve extra data
         Bundle extras = getIntent().getExtras();
         int event;
         long startTime;
@@ -47,10 +49,13 @@ public class ScanAct extends AppCompatActivity implements SelectTimeDia.SelectTi
             event = extras.getInt("event");
             startTime = extras.getInt("time");
         }
+    }
+
+    public void sendLog(View view) {
         long finishTime = TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + TimeUnit.SECONDS.toMillis(second);
 
-        Timelog timelog = new Timelog(npRunner.getValue(), finishTime - startTime);
-        TimelogMessage tlMessage = new TimelogMessage(event, timelog);
+        Timelog timelog = new Timelog(npRunner.getValue(), finishTime - extraStartTime);
+        TimelogMessage tlMessage = new TimelogMessage(extraEvent, timelog);
         //
         // send to server: event, runner, scanAct.time - timeKeeper.time
     }

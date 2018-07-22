@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.example.utilisateur.qrthing.R;
 
@@ -28,6 +29,11 @@ public class LeaderboardAct extends AppCompatActivity {
         });
 
         //savedInstanceState.get(CurrentEvent);
+    }
+
+    public void setEvent(View view) {
+        event = eventSelect.getValue();
+        Toast.makeText(this, "Event leaderboard #" + event + " selected", Toast.LENGTH_SHORT).show();
     }
 
 }

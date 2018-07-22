@@ -18,7 +18,15 @@
     <NumberPicker
         android:id="@+id/npSelectEvent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants" />
+
+    <Button
+        android:id="@+id/bSelectEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="setEvent"
+        android:text="Select Event" />
 
     <ScrollView
         android:layout_width="match_parent"

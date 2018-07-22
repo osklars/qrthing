@@ -18,7 +18,8 @@
     <NumberPicker
         android:id="@+id/npSelectEvent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"/>
 
     <TextView
         android:id="@+id/tvEditTime"
