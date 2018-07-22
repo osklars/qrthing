@@ -38,7 +38,7 @@ public class TimeKeeperAct extends AppCompatActivity implements SelectTimeDia.Se
         });
         // Set default time text
         Calendar cal = Calendar.getInstance();
-        String curTime = cal.get(Calendar.HOUR_OF_DAY)+ ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND)
+        String curTime = cal.get(Calendar.HOUR_OF_DAY)+ ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
         timeSelect.setText(curTime);
     }
 
